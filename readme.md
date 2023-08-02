@@ -1,5 +1,5 @@
 <h1>Introdução</h1>
-Esta API utiliza o Framework Spring Boot 3 e parte do código foi criado a partir de aulas da Alura.
+Esta API utiliza o Framework Spring Boot 3 e parte do código foi criado a partir de aulas da Alura.<br>
 A Criação e exposição deste código é apenas para fins educacionais e não lucrativos.
 
 <h1>Funcionalidades</h1>
