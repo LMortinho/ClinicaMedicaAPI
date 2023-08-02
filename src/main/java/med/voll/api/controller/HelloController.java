@@ -11,7 +11,7 @@ public class HelloController {
 
     @GetMapping
     public String olamundo() {
-        return "Hello World Spring!";
+        return "Hello World Spring Boot 3!";
     }
 }
 
