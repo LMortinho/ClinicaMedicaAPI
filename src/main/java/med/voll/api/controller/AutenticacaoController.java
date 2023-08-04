@@ -24,13 +24,18 @@ public class AutenticacaoController {
     @Autowired
     private TokenService tokenService;
 
-    @PostMapping
-    public ResponseEntity efetuarlogin(@RequestBody @Valid DadosAutenticacao dados) {
-        var authenticationToken = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
-        var authentication = manager.authenticate(authenticationToken);
+    @PostMapping // Responsavel por efetuar o login e devolver o token
+    public ResponseEntity login(@RequestBody @Valid DadosAutenticacao dados) { // DTO nesta linha, pegando a string da requisição post
+        try {
+            var authenticationToken = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
+            var authentication = manager.authenticate(authenticationToken); // linha responsável por autenticar login e senha
 
-        var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+            var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
 
-        return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
+            return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }

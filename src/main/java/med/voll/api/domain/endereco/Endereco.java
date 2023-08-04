@@ -5,18 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Embeddable
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Embeddable
 public class Endereco {
-        private String logradouro;
-        private String bairro;
-        private String cep;
-        private String cidade;
-        private String uf;
-        private String numero;
-        private String complemento;
+    private String logradouro;
+    private String bairro;
+    private String cep;
+    private String cidade;
+    private String uf;
+    private String numero;
+    private String complemento;
 
     public Endereco(DadosEndereco dados) {
         this.logradouro = dados.logradouro();
@@ -48,7 +48,7 @@ public class Endereco {
             this.numero = dados.numero();
         }
         if (dados.complemento() != null) {
-            this.complemento = dados.complemento();
+            this.numero = dados.numero();
         }
     }
 }
